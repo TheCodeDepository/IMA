@@ -40,33 +40,42 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.LogList = new System.Windows.Forms.ListBox();
+            this.numOfFaliures = new System.Windows.Forms.Label();
+            this.LongestFailure = new System.Windows.Forms.Label();
+            this.timeoutLabel = new System.Windows.Forms.Label();
+            this.TimeoutPeriod = new System.Windows.Forms.TextBox();
+            this.backgroundWorkerPing = new System.ComponentModel.BackgroundWorker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.IntervalTb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // logPathLabel
             // 
             this.logPathLabel.AutoSize = true;
-            this.logPathLabel.Location = new System.Drawing.Point(14, 15);
+            this.logPathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logPathLabel.Location = new System.Drawing.Point(16, 17);
             this.logPathLabel.Name = "logPathLabel";
-            this.logPathLabel.Size = new System.Drawing.Size(72, 13);
+            this.logPathLabel.Size = new System.Drawing.Size(81, 15);
             this.logPathLabel.TabIndex = 0;
             this.logPathLabel.Text = "Log Location:";
             // 
             // logPath
             // 
-            this.logPath.Location = new System.Drawing.Point(87, 11);
-            this.logPath.Multiline = true;
+            this.logPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logPath.Location = new System.Drawing.Point(106, 14);
             this.logPath.Name = "logPath";
-            this.logPath.Size = new System.Drawing.Size(251, 21);
+            this.logPath.ReadOnly = true;
+            this.logPath.Size = new System.Drawing.Size(292, 21);
             this.logPath.TabIndex = 1;
-            this.logPath.Text = "C:\\";
+            this.logPath.Text = "C:\\Users\\marti\\Desktop\\Logs";
             this.logPath.TextChanged += new System.EventHandler(this.logPath_TextChanged);
             // 
             // saveLogPath
             // 
-            this.saveLogPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            this.saveLogPath.Location = new System.Drawing.Point(318, 12);
+            this.saveLogPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.saveLogPath.Location = new System.Drawing.Point(373, 15);
             this.saveLogPath.Name = "saveLogPath";
-            this.saveLogPath.Size = new System.Drawing.Size(19, 19);
+            this.saveLogPath.Size = new System.Drawing.Size(24, 19);
             this.saveLogPath.TabIndex = 2;
             this.saveLogPath.Text = "...";
             this.saveLogPath.UseVisualStyleBackColor = true;
@@ -75,9 +84,10 @@
             // startBtn
             // 
             this.startBtn.Enabled = false;
-            this.startBtn.Location = new System.Drawing.Point(17, 79);
+            this.startBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.startBtn.Location = new System.Drawing.Point(20, 91);
             this.startBtn.Name = "startBtn";
-            this.startBtn.Size = new System.Drawing.Size(75, 23);
+            this.startBtn.Size = new System.Drawing.Size(87, 27);
             this.startBtn.TabIndex = 3;
             this.startBtn.Text = "Start";
             this.startBtn.UseVisualStyleBackColor = true;
@@ -86,27 +96,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 41);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(38, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.Size = new System.Drawing.Size(59, 15);
             this.label1.TabIndex = 5;
             this.label1.Text = "Server IP:";
             // 
             // serverIP
             // 
-            this.serverIP.Location = new System.Drawing.Point(87, 38);
-            this.serverIP.Multiline = true;
+            this.serverIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.serverIP.Location = new System.Drawing.Point(106, 44);
             this.serverIP.Name = "serverIP";
-            this.serverIP.Size = new System.Drawing.Size(251, 21);
+            this.serverIP.Size = new System.Drawing.Size(292, 21);
             this.serverIP.TabIndex = 6;
+            this.serverIP.Text = "8.8.8.8";
             this.serverIP.TextChanged += new System.EventHandler(this.serverIP_TextChanged);
             // 
             // stopBtn
             // 
             this.stopBtn.Enabled = false;
-            this.stopBtn.Location = new System.Drawing.Point(17, 108);
+            this.stopBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.stopBtn.Location = new System.Drawing.Point(20, 125);
             this.stopBtn.Name = "stopBtn";
-            this.stopBtn.Size = new System.Drawing.Size(75, 23);
+            this.stopBtn.Size = new System.Drawing.Size(87, 27);
             this.stopBtn.TabIndex = 7;
             this.stopBtn.Text = "Stop";
             this.stopBtn.UseVisualStyleBackColor = true;
@@ -115,52 +128,132 @@
             // timeElapsedLabel
             // 
             this.timeElapsedLabel.AutoSize = true;
-            this.timeElapsedLabel.Location = new System.Drawing.Point(292, 84);
+            this.timeElapsedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.timeElapsedLabel.Location = new System.Drawing.Point(269, 92);
             this.timeElapsedLabel.Name = "timeElapsedLabel";
-            this.timeElapsedLabel.Size = new System.Drawing.Size(35, 13);
+            this.timeElapsedLabel.Size = new System.Drawing.Size(55, 15);
             this.timeElapsedLabel.TabIndex = 8;
-            this.timeElapsedLabel.Text = "label2";
+            this.timeElapsedLabel.Text = "00:00:00";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(179, 84);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label2.Location = new System.Drawing.Point(164, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.Size = new System.Drawing.Size(86, 15);
             this.label2.TabIndex = 9;
             this.label2.Text = "Time Elapsed:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(155, 105);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label3.Location = new System.Drawing.Point(131, 112);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.Size = new System.Drawing.Size(115, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Number of Failures:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(155, 124);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label4.Location = new System.Drawing.Point(154, 133);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 13);
+            this.label4.Size = new System.Drawing.Size(95, 15);
             this.label4.TabIndex = 11;
             this.label4.Text = "Longest Faliure:";
             // 
             // LogList
             // 
+            this.LogList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LogList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.LogList.FormattingEnabled = true;
-            this.LogList.Location = new System.Drawing.Point(13, 148);
+            this.LogList.ItemHeight = 15;
+            this.LogList.Location = new System.Drawing.Point(15, 171);
             this.LogList.Name = "LogList";
-            this.LogList.Size = new System.Drawing.Size(590, 420);
+            this.LogList.Size = new System.Drawing.Size(688, 484);
             this.LogList.TabIndex = 12;
+            // 
+            // numOfFaliures
+            // 
+            this.numOfFaliures.AutoSize = true;
+            this.numOfFaliures.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.numOfFaliures.Location = new System.Drawing.Point(269, 113);
+            this.numOfFaliures.Name = "numOfFaliures";
+            this.numOfFaliures.Size = new System.Drawing.Size(14, 15);
+            this.numOfFaliures.TabIndex = 17;
+            this.numOfFaliures.Text = "0";
+            // 
+            // LongestFailure
+            // 
+            this.LongestFailure.AutoSize = true;
+            this.LongestFailure.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.LongestFailure.Location = new System.Drawing.Point(269, 134);
+            this.LongestFailure.Name = "LongestFailure";
+            this.LongestFailure.Size = new System.Drawing.Size(55, 15);
+            this.LongestFailure.TabIndex = 18;
+            this.LongestFailure.Text = "00:00:00";
+            // 
+            // timeoutLabel
+            // 
+            this.timeoutLabel.AutoSize = true;
+            this.timeoutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeoutLabel.Location = new System.Drawing.Point(412, 16);
+            this.timeoutLabel.Name = "timeoutLabel";
+            this.timeoutLabel.Size = new System.Drawing.Size(55, 15);
+            this.timeoutLabel.TabIndex = 19;
+            this.timeoutLabel.Text = "Timeout:";
+            // 
+            // TimeoutPeriod
+            // 
+            this.TimeoutPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeoutPeriod.Location = new System.Drawing.Point(469, 14);
+            this.TimeoutPeriod.Name = "TimeoutPeriod";
+            this.TimeoutPeriod.Size = new System.Drawing.Size(107, 21);
+            this.TimeoutPeriod.TabIndex = 20;
+            this.TimeoutPeriod.TextChanged += new System.EventHandler(this.TimeoutPeriod_TextChanged);
+            this.TimeoutPeriod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyDownNums);
+            // 
+            // backgroundWorkerPing
+            // 
+            this.backgroundWorkerPing.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerPing_DoWork);
+            this.backgroundWorkerPing.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerPing_RunWorkerCompleted);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(418, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 15);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Interval:";
+            // 
+            // IntervalTb
+            // 
+            this.IntervalTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IntervalTb.Location = new System.Drawing.Point(469, 44);
+            this.IntervalTb.Name = "IntervalTb";
+            this.IntervalTb.Size = new System.Drawing.Size(107, 21);
+            this.IntervalTb.TabIndex = 22;
+            this.IntervalTb.TextChanged += new System.EventHandler(this.IntervalTb_TextChanged);
+            this.IntervalTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyDownNums);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 585);
+            this.ClientSize = new System.Drawing.Size(717, 675);
+            this.Controls.Add(this.IntervalTb);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.TimeoutPeriod);
+            this.Controls.Add(this.timeoutLabel);
+            this.Controls.Add(this.LongestFailure);
+            this.Controls.Add(this.numOfFaliures);
             this.Controls.Add(this.LogList);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -174,6 +267,7 @@
             this.Controls.Add(this.logPath);
             this.Controls.Add(this.logPathLabel);
             this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -195,6 +289,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox LogList;
+        private System.Windows.Forms.Label numOfFaliures;
+        private System.Windows.Forms.Label LongestFailure;
+        private System.Windows.Forms.Label timeoutLabel;
+        private System.Windows.Forms.TextBox TimeoutPeriod;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerPing;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox IntervalTb;
     }
 }
 
