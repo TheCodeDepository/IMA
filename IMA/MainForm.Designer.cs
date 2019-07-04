@@ -67,7 +67,6 @@
             this.logPath.ReadOnly = true;
             this.logPath.Size = new System.Drawing.Size(292, 21);
             this.logPath.TabIndex = 1;
-            this.logPath.Text = "C:\\Users\\marti\\Desktop\\Logs";
             this.logPath.TextChanged += new System.EventHandler(this.logPath_TextChanged);
             // 
             // saveLogPath
@@ -215,6 +214,7 @@
             this.TimeoutPeriod.Name = "TimeoutPeriod";
             this.TimeoutPeriod.Size = new System.Drawing.Size(107, 21);
             this.TimeoutPeriod.TabIndex = 20;
+            this.TimeoutPeriod.Text = "1000";
             this.TimeoutPeriod.TextChanged += new System.EventHandler(this.TimeoutPeriod_TextChanged);
             this.TimeoutPeriod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyDownNums);
             // 
@@ -240,6 +240,7 @@
             this.IntervalTb.Name = "IntervalTb";
             this.IntervalTb.Size = new System.Drawing.Size(107, 21);
             this.IntervalTb.TabIndex = 22;
+            this.IntervalTb.Text = "1000";
             this.IntervalTb.TextChanged += new System.EventHandler(this.IntervalTb_TextChanged);
             this.IntervalTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyDownNums);
             // 
@@ -269,7 +270,7 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Internet Monitoring Application";
             this.ResumeLayout(false);
             this.PerformLayout();
 
